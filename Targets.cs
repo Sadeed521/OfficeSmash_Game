@@ -57,5 +57,6 @@ public class Targets : MonoBehaviour
     {
         return new Vector3(Random.Range(-posXneg, posX), -posY, -posZ);
         Debug.Log("Hello sadeed");
+        Debug.Log("Hello everyone");
     }
 }
