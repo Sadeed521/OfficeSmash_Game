@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Targets : MonoBehaviour
 {
-    
+
     private Rigidbody targetRb;
     private float minSpeed = 7f;
     private float maxSpeed = 10f;
@@ -14,12 +14,12 @@ public class Targets : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
-        
+    {
+
         targetRb = GetComponent<Rigidbody>();
         Debug.Log(targetRb);
 
-        targetRb.AddForce( RandomForce(), ForceMode.Impulse);
+        targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque());
 
         transform.position = RandomSpawn();
@@ -27,17 +27,17 @@ public class Targets : MonoBehaviour
 
     private void TargetOutBound()
     {
-        if (targetRb.position.y <= -4) 
+        if (targetRb.position.y <= -4)
         {
             Destroy(gameObject);
-           Debug.Log("Target destroyed");
+            Debug.Log("Target destroyed");
         }
-       
+
     }
     private void OnMouseDown()
     {
         Destroy(gameObject);
-        
+
     }
     // Update is called once per frame
     void Update()
@@ -56,5 +56,6 @@ public class Targets : MonoBehaviour
     Vector3 RandomSpawn()
     {
         return new Vector3(Random.Range(-posXneg, posX), -posY, -posZ);
+        Debug.Log("Hello sadeed");
     }
 }
