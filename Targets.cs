@@ -56,7 +56,7 @@ public class Targets : MonoBehaviour
     Vector3 RandomSpawn()
     {
         return new Vector3(Random.Range(-posXneg, posX), -posY, -posZ);
-        Debug.Log("Hello sadeed");
+        Debug.Log("Hello sadeed  aaaaa");
         Debug.Log("Hello everyone");
     }
 }
