@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Targets : MonoBehaviour
 {
-
+    private GameManager gameManager;
     private Rigidbody targetRb;
     private float minSpeed = 7f;
     private float maxSpeed = 10f;
@@ -11,13 +11,15 @@ public class Targets : MonoBehaviour
     private float posXneg = 1.52f;
     private float posY = 3.37f;
     private float posZ = 3.02f;
+   [SerializeField] private float pointValue;
 
     // Start is called before the first frame update
     void Start()
     {
 
         targetRb = GetComponent<Rigidbody>();
-        Debug.Log(targetRb);
+
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque());
@@ -37,6 +39,7 @@ public class Targets : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        gameManager.UpdateScore(pointValue);
 
     }
     // Update is called once per frame
@@ -55,7 +58,6 @@ public class Targets : MonoBehaviour
     }
     Vector3 RandomSpawn()
     {
-        return new Vector3(Random.Range(-posXneg, posX), -posY, -posZ);
-        Debug.Log("Hello sadeed");
+        return new Vector3(Random.Range(-posXneg, posX), -posY, -posZ);      
     }
 }
